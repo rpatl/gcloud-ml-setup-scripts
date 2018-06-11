@@ -30,5 +30,6 @@ echo "Checking for R & RStudio and installing."
     rm rstudio-xenial-1.1.453-amd64.deb
   fi
   
-
-#vncserver -localhost no -geometry 1024x768
+  # start VNC server on port 5901. This will prompt for a password if it's being called for the first time.
+  # TODO: add logic to only run this command if the server isn't already listening to port 5901.
+  vncserver -localhost no -geometry 1024x768
