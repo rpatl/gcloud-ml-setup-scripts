@@ -6,6 +6,7 @@ sudo apt-get update
 
 echo "Checking for xfce4 desktop environment and installing."
   if ! dpkg-query -W xfce4; then
+    sudo apt-get install dbus # necessary for successful install of xfce4, otherwise xfce4 installation will hang.
     sudo apt-get install xfce4
   fi
 
@@ -19,12 +20,8 @@ echo "Checking for R & RStudio and installing."
     sudo apt-get install r-base
   fi
 
-  # libxslt1 is an RStudio dependency that is not included on the gcloud Debian images.
-  if ! dpkg-query -W libxslt1-dev; then
-    sudo apt-get install libxslt1-dev
-  fi
-  
   if ! dpkg-query -W rstudio; then
+    sudo apt-get install libxslt1-dev # dependency of rstudio
     wget https://download1.rstudio.org/rstudio-xenial-1.1.453-amd64.deb
     sudo dpkg -i rstudio-xenial-1.1.453-amd64.deb
     rm rstudio-xenial-1.1.453-amd64.deb
