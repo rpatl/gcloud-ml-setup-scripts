@@ -19,6 +19,7 @@ echo "Checking for R & RStudio and installing."
     sudo apt-get install r-base
   fi
 
+  # libxslt1 is an RStudio dependency that is not included on the gcloud Debian images.
   if ! dpkg-query -W libxslt1-dev; then
     sudo apt-get install libxslt1-dev
   fi
