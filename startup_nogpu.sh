@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Installs a simple desktop environment & VNC server for remote access, and a few machine learning libraries.
    
 sudo apt-get update
 
@@ -20,8 +22,12 @@ echo "Checking for R & RStudio and installing."
   if ! dpkg-query -W libxslt1-dev; then
     sudo apt-get install libxslt1-dev
   fi
+  
+  if ! dpkg-query -W rstudio; then
+    wget https://download1.rstudio.org/rstudio-xenial-1.1.453-amd64.deb
+    sudo dpkg -i rstudio-xenial-1.1.453-amd64.deb
+    rm rstudio-xenial-1.1.453-amd64.deb
+  fi
+  
 
-#wget https://download1.rstudio.org/rstudio-xenial-1.1.453-amd64.deb
-#sudo dpkg -i rstudio-xenial-1.1.453-amd64.deb
-#rm rstudio-xenial-1.1.453-amd64.deb
 #vncserver -localhost no -geometry 1024x768
