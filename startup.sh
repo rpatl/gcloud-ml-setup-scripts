@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Startup script for Ubuntu-based machines.
-# Installs a few essential machine learning libraries, as well as a simple desktop environment & VNC server for remote access.
+# Installs:
+#   * a few essential machine learning libraries
+#   * a simple desktop environment & VNC server for remote access
+#   * basic development tools
 # Use "-gpu" to check for and install NVIDIA CUDA drivers.
 
 sudo apt-get update
@@ -53,7 +56,6 @@ echo "Checking for Visual Studio Code & installing."
     sudo dpkg -i code_1.24.0-1528306776_amd64.deb
     rm code_1.24.0-1528306776_amd64.deb
   fi
-  
 
   if [ "$1" == "-gpu" ]; then
     echo "Checking for NVIDIA CUDA drivers & installing."
