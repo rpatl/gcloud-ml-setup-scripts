@@ -51,7 +51,6 @@ echo "Checking for Visual Studio Code & installing."
   if ! dpkg-query -W code; then
     curl -O https://az764295.vo.msecnd.net/stable/6a6e02cef0f2122ee1469765b704faf5d0e0d859/code_1.24.0-1528306776_amd64.deb
     sudo dpkg -i code_1.24.0-1528306776_amd64.deb
-    sudo apt-get install code -f
     rm code_1.24.0-1528306776_amd64.deb
   fi
   
