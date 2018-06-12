@@ -16,6 +16,11 @@ echo "Checking for vnc4server and installing."
   if ! dpkg-query -W vnc4server; then
     sudo apt-get install vnc4server
   fi
+  
+echo "Checking for git & installing."
+if ! dpkg-query -W git; then
+  sudo apt-get install git
+fi
 
 echo "Checking for numpy, scipy, and matplotlib, and installing."
   if ! dpkg-query -W python3-numpy; then
@@ -41,6 +46,15 @@ echo "Checking for R & RStudio and installing."
     sudo dpkg -i rstudio-xenial-1.1.453-amd64.deb
     rm rstudio-xenial-1.1.453-amd64.deb
   fi
+
+echo "Checking for Visual Studio Code & installing."
+  if ! dpkg-query -W code; then
+    curl -O https://az764295.vo.msecnd.net/stable/6a6e02cef0f2122ee1469765b704faf5d0e0d859/code_1.24.0-1528306776_amd64.deb
+    sudo dpkg -i code_1.24.0-1528306776_amd64.deb
+    sudo apt-get install code -f
+    rm code_1.24.0-1528306776_amd64.deb
+  fi
+  
 
   if [ "$1" == "-gpu" ]; then
     echo "Checking for NVIDIA CUDA drivers & installing."
